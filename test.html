@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Veda Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .test-result {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .success {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .failure {
+            color: #f44336;
+            font-weight: bold;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <h1>Medicine Veda Website Test</h1>
+    <p>This page tests if all the files required for the Medicine Veda website are present and properly structured.</p>
+
+    <div class="test-result" id="testResults">
+        <h2>Test Results</h2>
+        <div id="results">Running tests...</div>
+    </div>
+
+    <button onclick="runTests()">Run Tests Again</button>
+
+    <script>
+        function runTests() {
+            const requiredFiles = [
+                {name: 'index.html', path: './index.html'},
+                {name: 'CSS Stylesheet', path: './css/styles.css'},
+                {name: 'JavaScript', path: './js/script.js'},
+                {name: 'Favicon', path: './favicon.ico'},
+                {name: 'README', path: './README.md'}
+            ];
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+
+            let allPassed = true;
+            let completedTests = 0;
+
+            requiredFiles.forEach(file => {
+                fetch(file.path, {method: 'HEAD'})
+                    .then(response => {
+                        completedTests++;
+                        if (response.ok) {
+                            resultsDiv.innerHTML += `<p><span class="success">✓</span> ${file.name} found</p>`;
+                        } else {
+                            allPassed = false;
+                            resultsDiv.innerHTML += `<p><span class="failure">✗</span> ${file.name} not found</p>`;
+                        }
+
+                        if (completedTests === requiredFiles.length) {
+                            if (allPassed) {
+                                resultsDiv.innerHTML += `<p class="success">All tests passed! The website is ready.</p>`;
+                            } else {
+                                resultsDiv.innerHTML += `<p class="failure">Some files are missing. Please check the structure.</p>`;
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        completedTests++;
+                        allPassed = false;
+                        resultsDiv.innerHTML += `<p><span class="failure">✗</span> ${file.name} not found</p>`;
+
+                        if (completedTests === requiredFiles.length) {
+                            resultsDiv.innerHTML += `<p class="failure">Some files are missing. Please check the structure.</p>`;
+                        }
+                    });
+            });
+
+            // Check responsiveness
+            const viewport = window.innerWidth;
+            resultsDiv.innerHTML += `<p>Current viewport width: ${viewport}px</p>`;
+            resultsDiv.innerHTML += `<p>The website should be responsive across all device sizes.</p>`;
+        }
+
+        // Run tests on page load
+        window.onload = runTests;
+    </script>
+</body>
+</html> 

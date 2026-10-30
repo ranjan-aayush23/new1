@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Veda - Health & Wellness</title>
+    <meta name="description" content="Discover the ancient wisdom of Ayurveda with Medicine Veda. Explore our collection of authentic Ayurvedic remedies, wellness tips, and health resources.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link rel="preconnect" href="https://img.youtube.com">
+    
+    <!-- Add animated background styles -->
+    <style>
+        /* Enhanced background gradients */
+        .hero {
+            background: linear-gradient(-45deg, #43a047, #2e7d32, #1b5e20, #388e3c);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Add floating particles to hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Fix YouTube thumbnail display issues */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+            background-color: #000;
+            margin-bottom: 15px;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Updated thumbnail styles */
+        .youtube-thumbnail {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        /* Thumbnail loading animation */
+        .thumbnail-loading {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            position: absolute;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Remove conflicting pseudo element */
+        .video-wrapper::before {
+            display: none;
+        }
+        
+        /* Enhanced feature cards */
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, #43a047, #1b5e20);
+            z-index: -1;
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .feature-card i {
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover i {
+            transform: scale(1.2) rotate(10deg);
+            color: #43a047;
+        }
+        
+        /* Enhanced video cards */
+        .video-card {
+            transition: all 0.4s ease;
+            transform-origin: center bottom;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Improved YouTube play button */
+        .youtube-play-button {
+            background: rgba(0, 0, 0, 0.7);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .youtube-thumbnail:hover .youtube-play-button {
+            background: rgba(255, 0, 0, 0.8);
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+        
+        /* Enhanced section titles */
+        .section-title {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #43a047, #1b5e20);
+            bottom: 0;
+            left: calc(50% - 30px);
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+        
+        .section-title:hover::after {
+            width: 120px;
+            left: calc(50% - 60px);
+        }
+        
+        /* Enhanced buttons */
+        .btn {
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 160, 71, 0.3);
+        }
+        
+        /* Blog card enhancements */
+        .blog-card {
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-img {
+            overflow: hidden;
+        }
+        
+        .blog-img img {
+            transition: all 0.6s ease;
+        }
+        
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+        
+        .read-more {
+            position: relative;
+        }
+        
+        .read-more::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #43a047;
+            transition: all 0.4s ease;
+        }
+        
+        .read-more:hover::after {
+            width: 100%;
+        }
+        
+        /* Improved care tabs */
+        .care-tab {
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .care-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #43a047, #2e7d32);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .care-tab:hover::before,
+        .care-tab.active::before {
+            opacity: 1;
+        }
+        
+        .care-tab.active, .care-tab:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(67, 160, 71, 0.3);
+        }
+        
+        /* Care card enhancements */
+        .care-card {
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        
+        .care-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-icon {
+            transition: all 0.4s ease;
+        }
+        
+        .care-card:hover .card-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg, #43a047, #2e7d32);
+        }
+        
+        /* Water ripple effect for buttons */
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%, -50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn-ripple:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0) translate(-50%, -50%);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(20, 20) translate(-50%, -50%);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Sticky Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Medicine Veda</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#personal-care">Personal Care</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Empowering Your Health, Naturally</h1>
+            <p>Trusted medical insights, fitness tips, and wellness wisdom at your fingertips.</p>
+            <a href="https://www.youtube.com/@MedicineVeda" class="btn primary-btn btn-ripple" target="_blank">
+                <i class="fab fa-youtube"></i> Watch on YouTube
+            </a>
+        </div>
+        <div class="floating-icons">
+            <i class="fas fa-heartbeat"></i>
+            <i class="fas fa-apple-alt"></i>
+            <i class="fas fa-pills"></i>
+            <i class="fas fa-dumbbell"></i>
+            <i class="fas fa-brain"></i>
+            <i class="fas fa-leaf"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Medicine Veda</h2>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p>Medicine Veda is your go-to place for reliable information about medicine, health, and fitness. We empower you with knowledge to make informed decisions about your well-being.</p>
+                </div>
+                <div class="features" data-aos="fade-left">
+                    <div class="feature-card">
+                        <i class="fas fa-stethoscope"></i>
+                        <h3>Medical Insights</h3>
+                        <p>Evidence-based medical information explained simply</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Fitness Tips</h3>
+                        <p>Effective exercise routines for all fitness levels</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-spa"></i>
+                        <h3>Holistic Wellness</h3>
+                        <p>Balance of mind, body, and spirit for total health</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Videos Section -->
+    <section id="videos" class="videos">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Featured Videos</h2>
+            <div class="video-container">
+                <div class="video-card" data-aos="zoom-in">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/NOe7igj0Ml4?modestbranding=1&rel=0&showinfo=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <h3>Understanding Cholesterol Levels</h3>
+                    <p>Learn what cholesterol numbers mean for your health and how to manage them naturally.</p>
+                </div>
+                <div class="video-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/7fjI0rnqvUU?modestbranding=1&rel=0&showinfo=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <h3>Home Workout: No Equipment Needed</h3>
+                    <p>A complete 20-minute workout routine you can do anywhere with no special equipment.</p>
+                </div>
+                <div class="video-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/OsYzA9f79_w?modestbranding=1&rel=0&showinfo=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <h3>Boost Your Immunity Naturally</h3>
+                    <p>Scientific approaches to strengthening your immune system with diet and lifestyle changes.</p>
+                </div>
+            </div>
+            <div class="btn-container" data-aos="fade-up">
+                <a href="https://www.youtube.com/@MedicineVeda" class="btn secondary-btn btn-ripple" target="_blank">
+                    View All Videos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Care Section -->
+    <section id="personal-care" class="personal-care">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Personal Care</h2>
+            
+            <!-- Tabs/Filter Navigation -->
+            <div class="care-tabs" data-aos="fade-up">
+                <button class="care-tab active" data-target="weight-gain">Weight Gain</button>
+                <button class="care-tab" data-target="weight-loss">Weight Loss</button>
+                <button class="care-tab" data-target="diet-plans">Diet Plans</button>
+                <button class="care-tab" data-target="medication">Medication</button>
+                <button class="care-tab" data-target="daily-routine">Daily Routine</button>
+                <button class="care-tab" data-target="mental-wellness">Mental Wellness</button>
+            </div>
+            
+            <div class="care-content">
+                <!-- Weight Gain Plan -->
+                <div class="care-tab-content active" id="weight-gain">
+                    <div class="care-header" data-aos="fade-up">
+                        <div class="care-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <h3>Weight Gain Plan</h3>
+                        <p>Healthy and sustainable methods to gain weight gradually</p>
+                    </div>
+                    
+                    <div class="care-cards">
+                        <div class="care-card" data-aos="zoom-in">
+                            <div class="card-icon">
+                                <i class="fas fa-apple-alt"></i>
+                            </div>
+                            <h4>Nutrition Guide</h4>
+                            <p>Focus on nutrient-dense foods with adequate protein and healthy fats to promote muscle growth and healthy weight gain.</p>
+                            <ul class="checklist">
+                                <li><i class="fas fa-check"></i> Eat 500-700 calories above maintenance level</li>
+                                <li><i class="fas fa-check"></i> Consume 1.6-2.2g protein per kg of bodyweight</li>
+                                <li><i class="fas fa-check"></i> Include healthy fats from nuts, avocados, oils</li>
+                                <li><i class="fas fa-check"></i> Eat 3 main meals plus 2-3 hearty snacks daily</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h4>Exercise Plan</h4>
+                            <p>Compound exercises that promote muscle growth alongside proper nutrition for healthy weight gain.</p>
+                            <ul class="checklist">
+                                <li><i class="fas fa-check"></i> Focus on strength training 3-4 times weekly</li>
+                                <li><i class="fas fa-check"></i> Prioritize compound movements (squats, deadlifts)</li>
+                                <li><i class="fas fa-check"></i> Progressive overload to stimulate muscle growth</li>
+                                <li><i class="fas fa-check"></i> Limit cardio to 2 short sessions per week</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h4>Sample Meal Plan</h4>
+                            <p>Balanced meals designed to provide sufficient calories and nutrients for healthy weight gain.</p>
+                            <div class="meal-plan">
+                                <div class="meal">
+                                    <span class="meal-time">Breakfast</span>
+                                    <p>Oatmeal with whole milk, banana, nuts, and honey. 2 whole eggs.</p>
+                                </div>
+                                <div class="meal">
+                                    <span class="meal-time">Snack</span>
+                                    <p>Smoothie: banana, berries, peanut butter, yogurt, and milk.</p>
+                                </div>
+                                <div class="meal">
+                                    <span class="meal-time">Lunch</span>
+                                    <p>Brown rice, chicken breast, avocado, and mixed vegetables.</p>
+                                </div>
+                                <div class="meal">
+                                    <span class="meal-time">Dinner</span>
+                                    <p>Salmon, sweet potato, broccoli, and olive oil dressing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container" data-aos="fade-up">
+                        <a href="#" class="btn primary-btn download-btn btn-ripple">
+                            <i class="fas fa-download"></i> Download Full Plan
+                        </a>
+                        <a href="#" class="btn secondary-btn btn-ripple">
+                            Explore Plan
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Weight Loss Plan -->
+                <div class="care-tab-content" id="weight-loss">
+                    <div class="care-header" data-aos="fade-up">
+                        <div class="care-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3>Weight Loss Plan</h3>
+                        <p>Sustainable approaches to healthy weight management</p>
+                    </div>
+                    
+                    <div class="care-cards">
+                        <div class="care-card" data-aos="zoom-in">
+                            <div class="card-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4>Nutrition Strategy</h4>
+                            <p>Focus on whole foods that keep you full longer while maintaining a moderate calorie deficit.</p>
+                            <ul class="checklist">
+                                <li><i class="fas fa-check"></i> Create a moderate calorie deficit (300-500 calories)</li>
+                                <li><i class="fas fa-check"></i> Prioritize protein (keeps you full longer)</li>
+                                <li><i class="fas fa-check"></i> Include fiber-rich vegetables at every meal</li>
+                                <li><i class="fas fa-check"></i> Stay hydrated - drink water before meals</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h4>Exercise Routine</h4>
+                            <p>Balanced approach combining cardio, strength training and flexibility for optimal results.</p>
+                            <ul class="checklist">
+                                <li><i class="fas fa-check"></i> 150+ minutes of moderate cardio weekly</li>
+                                <li><i class="fas fa-check"></i> 2-3 strength training sessions per week</li>
+                                <li><i class="fas fa-check"></i> Incorporate HIIT for efficient fat burning</li>
+                                <li><i class="fas fa-check"></i> Include active recovery like walking or yoga</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4>Lifestyle Tips</h4>
+                            <p>Sustainable habits that support long-term weight management beyond diet and exercise.</p>
+                            <ul class="checklist">
+                                <li><i class="fas fa-check"></i> Prioritize 7-9 hours of quality sleep</li>
+                                <li><i class="fas fa-check"></i> Practice mindful eating (no screens)</li>
+                                <li><i class="fas fa-check"></i> Manage stress with meditation or relaxation</li>
+                                <li><i class="fas fa-check"></i> Track progress but focus on non-scale victories</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container" data-aos="fade-up">
+                        <a href="#" class="btn primary-btn download-btn btn-ripple">
+                            <i class="fas fa-download"></i> Download Full Plan
+                        </a>
+                        <a href="#" class="btn secondary-btn btn-ripple">
+                            Explore Plan
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Diet Plans -->
+                <div class="care-tab-content" id="diet-plans">
+                    <div class="care-header" data-aos="fade-up">
+                        <div class="care-icon">
+                            <i class="fas fa-carrot"></i>
+                        </div>
+                        <h3>Diet Plans</h3>
+                        <p>Explore various dietary approaches for different health needs</p>
+                    </div>
+                    
+                    <div class="diet-filters" data-aos="fade-up">
+                        <button class="diet-filter active" data-diet="vegetarian">Vegetarian</button>
+                        <button class="diet-filter" data-diet="vegan">Vegan</button>
+                        <button class="diet-filter" data-diet="high-protein">High-Protein</button>
+                        <button class="diet-filter" data-diet="low-carb">Low-Carb</button>
+                        <button class="diet-filter" data-diet="keto">Keto</button>
+                    </div>
+                    
+                    <div class="diet-content">
+                        <!-- Vegetarian Diet -->
+                        <div class="diet-tab-content active" id="vegetarian">
+                            <div class="care-cards">
+                                <div class="care-card" data-aos="zoom-in">
+                                    <div class="card-icon">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                    <h4>Vegetarian Basics</h4>
+                                    <p>Plant-based diet that excludes meat but may include dairy and eggs for complete nutrition.</p>
+                                    <ul class="checklist">
+                                        <li><i class="fas fa-check"></i> Rich in fruits, vegetables, and whole grains</li>
+                                        <li><i class="fas fa-check"></i> Includes dairy, eggs, legumes, nuts for protein</li>
+                                        <li><i class="fas fa-check"></i> Focus on vitamin B12, iron, zinc sources</li>
+                                        <li><i class="fas fa-check"></i> Varied diet ensures complete nutrition</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="care-card" data-aos="zoom-in" data-aos-delay="100">
+                                    <div class="card-icon">
+                                        <i class="fas fa-egg"></i>
+                                    </div>
+                                    <h4>Protein Sources</h4>
+                                    <p>Complete protein sources for vegetarians to maintain muscle mass and overall health.</p>
+                                    <div class="food-list">
+                                        <div class="food-item">
+                                            <span>Eggs</span>
+                                            <span>7g protein per egg</span>
+                                        </div>
+                                        <div class="food-item">
+                                            <span>Greek Yogurt</span>
+                                            <span>15-20g protein per cup</span>
+                                        </div>
+                                        <div class="food-item">
+                                            <span>Cottage Cheese</span>
+                                            <span>24g protein per cup</span>
+                                        </div>
+                                        <div class="food-item">
+                                            <span>Lentils</span>
+                                            <span>18g protein per cup</span>
+                                        </div>
+                                        <div class="food-item">
+                                            <span>Tofu</span>
+                                            <span>20g protein per cup</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="care-card" data-aos="zoom-in" data-aos-delay="200">
+                                    <div class="card-icon">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <h4>Sample Meal Ideas</h4>
+                                    <p>Balanced vegetarian meal suggestions for optimal nutrition throughout the day.</p>
+                                    <div class="meal-plan">
+                                        <div class="meal">
+                                            <span class="meal-time">Breakfast</span>
+                                            <p>Greek yogurt with berries, honey, and walnuts. Whole grain toast.</p>
+                                        </div>
+                                        <div class="meal">
+                                            <span class="meal-time">Lunch</span>
+                                            <p>Quinoa bowl with roasted vegetables, feta cheese, and olive oil dressing.</p>
+                                        </div>
+                                        <div class="meal">
+                                            <span class="meal-time">Dinner</span>
+                                            <p>Vegetable stir-fry with tofu, broccoli, bell peppers, and brown rice.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- More diet tabs would be added here -->
+                    </div>
+                    
+                    <div class="btn-container" data-aos="fade-up">
+                        <a href="#" class="btn primary-btn download-btn btn-ripple">
+                            <i class="fas fa-download"></i> Download Diet Guide
+                        </a>
+                        <a href="#" class="btn secondary-btn btn-ripple">
+                            View Diets
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Medication & Supplements -->
+                <div class="care-tab-content" id="medication">
+                    <div class="care-header" data-aos="fade-up">
+                        <div class="care-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3>Medication & Supplements</h3>
+                        <p>Information on common wellness supplements and medications</p>
+                    </div>
+                    
+                    <div class="disclaimer" data-aos="fade-up">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>Always consult with your healthcare provider before starting any new supplement or medication. This information is for educational purposes only and is not medical advice.</p>
+                    </div>
+                    
+                    <div class="care-cards">
+                        <div class="care-card" data-aos="zoom-in">
+                            <div class="card-icon">
+                                <i class="fas fa-capsules"></i>
+                            </div>
+                            <h4>Common Supplements</h4>
+                            <p>Popular supplements and their potential benefits for general wellness.</p>
+                            <div class="supplement-list">
+                                <div class="supplement">
+                                    <span class="supplement-name">Vitamin D</span>
+                                    <p>Supports bone health, immune function, and mood regulation. Important for those with limited sun exposure.</p>
+                                </div>
+                                <div class="supplement">
+                                    <span class="supplement-name">Omega-3 Fatty Acids</span>
+                                    <p>May support heart health, reduce inflammation, and improve brain function.</p>
+                                </div>
+                                <div class="supplement">
+                                    <span class="supplement-name">Probiotics</span>
+                                    <p>Support gut health and beneficial bacteria for digestive wellness and immunity.</p>
+                                </div>
+                                <div class="supplement">
+                                    <span class="supplement-name">Magnesium</span>
+                                    <p>Important for muscle function, energy production, and sleep quality.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card-icon">
+                                <i class="fas fa-first-aid"></i>
+                            </div>
+                            <h4>OTC Medications</h4>
+                            <p>Common over-the-counter medications and their appropriate uses.</p>
+                            <div class="medication-list">
+                                <div class="medication">
+                                    <span class="medication-name">NSAIDs (Ibuprofen, Aspirin)</span>
+                                    <p>For temporary relief of pain, inflammation, and fever. Not for long-term use without medical supervision.</p>
+                                </div>
+                                <div class="medication">
+                                    <span class="medication-name">Acetaminophen (Tylenol)</span>
+                                    <p>For pain relief and fever reduction. Different mechanism than NSAIDs with less anti-inflammatory effect.</p>
+                                </div>
+                                <div class="medication">
+                                    <span class="medication-name">Antihistamines</span>
+                                    <p>For allergy symptoms like sneezing, itching, and runny nose. May cause drowsiness.</p>
+                                </div>
+                                <div class="medication">
+                                    <span class="medication-name">Antacids</span>
+                                    <p>For temporary relief of heartburn and acid indigestion. Not for chronic use without medical guidance.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h4>Supplement Safety</h4>
+                            <p>Important considerations before adding supplements to your routine.</p>
+                            <ul class="checklist">
+                                <li><i class="fas fa-check"></i> Research quality brands with third-party testing</li>
+                                <li><i class="fas fa-check"></i> Check for potential drug interactions</li>
+                                <li><i class="fas fa-check"></i> Start with lower doses to assess tolerance</li>
+                                <li><i class="fas fa-check"></i> More is not better - follow recommended dosages</li>
+                                <li><i class="fas fa-check"></i> Consider food sources before supplementation</li>
+                                <li><i class="fas fa-check"></i> Consult healthcare provider if pregnant or nursing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container" data-aos="fade-up">
+                        <a href="#" class="btn secondary-btn btn-ripple">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Daily Health Routine -->
+                <div class="care-tab-content" id="daily-routine">
+                    <div class="care-header" data-aos="fade-up">
+                        <div class="care-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Daily Health Routine</h3>
+                        <p>Simple habits to incorporate into your daily life for optimal wellness</p>
+                    </div>
+                    
+                    <div class="care-cards">
+                        <div class="care-card" data-aos="zoom-in">
+                            <div class="card-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h4>Morning Routine</h4>
+                            <p>Start your day with these healthy habits to set yourself up for success.</p>
+                            <div class="routine-list">
+                                <div class="routine-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="routine-content">
+                                        <h5>Hydrate First</h5>
+                                        <p>Drink 16oz of water with lemon to rehydrate after sleep and kickstart digestion.</p>
+                                    </div>
+                                </div>
+                                <div class="routine-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="routine-content">
+                                        <h5>Movement</h5>
+                                        <p>5-10 minutes of stretching, yoga, or light exercise to awaken your body.</p>
+                                    </div>
+                                </div>
+                                <div class="routine-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="routine-content">
+                                        <h5>Mindfulness</h5>
+                                        <p>5 minutes of meditation, deep breathing, or gratitude practice for mental clarity.</p>
+                                    </div>
+                                </div>
+                                <div class="routine-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="routine-content">
+                                        <h5>Nourish</h5>
+                                        <p>Balanced breakfast with protein, healthy fats, and complex carbohydrates.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card-icon">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <h4>Evening Routine</h4>
+                            <p>Wind down with these practices for better sleep and recovery.</p>
+                            <div class="routine-list">
+                                <div class="routine-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="routine-content">
+                                        <h5>Digital Sunset</h5>
+                                        <p>Turn off screens 1-2 hours before bed to improve sleep quality.</p>
+                                    </div>
+                                </div>
+                                <div class="routine-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="routine-content">
+                                        <h5>Gentle Movement</h5>
+                                        <p>Light stretching or yoga to release tension accumulated during the day.</p>
+                                    </div>
+                                </div>
+                                <div class="routine-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="routine-content">
+                                        <h5>Skincare</h5>
+                                        <p>Cleanse, moisturize, and apply treatments as needed for skin health.</p>
+                                    </div>
+                                </div>
+                                <div class="routine-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <div class="routine-content">
+                                        <h5>Reflection</h5>
+                                        <p>Journal, read, or practice gratitude to calm the mind before sleep.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h4>Hydration & Sleep</h4>
+                            <p>Prioritize these two fundamental pillars of health throughout your day.</p>
+                            <div class="health-tips">
+                                <div class="health-tip">
+                                    <h5>Hydration Strategy</h5>
+                                    <ul class="checklist">
+                                        <li><i class="fas fa-check"></i> Drink 8-10 glasses (2-3 liters) daily</li>
+                                        <li><i class="fas fa-check"></i> Set reminders or use a marked water bottle</li>
+                                        <li><i class="fas fa-check"></i> Drink before, during and after exercise</li>
+                                        <li><i class="fas fa-check"></i> Include hydrating foods (cucumber, watermelon)</li>
+                                    </ul>
+                                </div>
+                                <div class="health-tip">
+                                    <h5>Sleep Optimization</h5>
+                                    <ul class="checklist">
+                                        <li><i class="fas fa-check"></i> Aim for 7-9 hours of quality sleep</li>
+                                        <li><i class="fas fa-check"></i> Keep consistent sleep/wake times</li>
+                                        <li><i class="fas fa-check"></i> Create a cool, dark, quiet sleep environment</li>
+                                        <li><i class="fas fa-check"></i> Avoid caffeine after noon</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container" data-aos="fade-up">
+                        <a href="#" class="btn primary-btn download-btn btn-ripple">
+                            <i class="fas fa-download"></i> Download Routine Checklist
+                        </a>
+                        <a href="#" class="btn secondary-btn btn-ripple">
+                            Get Routine
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mental Wellness -->
+                <div class="care-tab-content" id="mental-wellness">
+                    <div class="care-header" data-aos="fade-up">
+                        <div class="care-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Mental Wellness</h3>
+                        <p>Strategies and practices to support your mental and emotional health</p>
+                    </div>
+                    
+                    <div class="care-cards">
+                        <div class="care-card" data-aos="zoom-in">
+                            <div class="card-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <h4>Breathing Techniques</h4>
+                            <p>Simple yet powerful breathing exercises to reduce stress and increase mindfulness.</p>
+                            <div class="technique">
+                                <h5>4-7-8 Breathing</h5>
+                                <ol class="technique-steps">
+                                    <li>Inhale quietly through your nose for 4 seconds</li>
+                                    <li>Hold your breath for 7 seconds</li>
+                                    <li>Exhale completely through your mouth for 8 seconds</li>
+                                    <li>Repeat 3-4 times</li>
+                                </ol>
+                                <p class="technique-benefit">Benefits: Reduces anxiety, helps with sleep, lowers stress response</p>
+                            </div>
+                            <div class="technique">
+                                <h5>Box Breathing</h5>
+                                <ol class="technique-steps">
+                                    <li>Inhale for 4 seconds</li>
+                                    <li>Hold for 4 seconds</li>
+                                    <li>Exhale for 4 seconds</li>
+                                    <li>Hold empty lungs for 4 seconds</li>
+                                    <li>Repeat for 5 minutes</li>
+                                </ol>
+                                <p class="technique-benefit">Benefits: Improves concentration, manages stress, creates calm</p>
+                            </div>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card-icon">
+                                <i class="fas fa-cloud-sun"></i>
+                            </div>
+                            <h4>Stress Reduction</h4>
+                            <p>Practical strategies to manage stress and build resilience in daily life.</p>
+                            <ul class="checklist">
+                                <li><i class="fas fa-check"></i> Practice mindfulness meditation (start with 5 min/day)</li>
+                                <li><i class="fas fa-check"></i> Set healthy boundaries with work and relationships</li>
+                                <li><i class="fas fa-check"></i> Spend time in nature (forest bathing, outdoor walks)</li>
+                                <li><i class="fas fa-check"></i> Journal to process emotions and identify stressors</li>
+                                <li><i class="fas fa-check"></i> Limit news and social media consumption</li>
+                                <li><i class="fas fa-check"></i> Move your body daily to release tension</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="care-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card-icon">
+                                <i class="fas fa-spa"></i>
+                            </div>
+                            <h4>Mindfulness Practices</h4>
+                            <p>Simple mindfulness exercises to incorporate throughout your day.</p>
+                            <div class="practice">
+                                <h5>5-Minute Meditation</h5>
+                                <p>Sit comfortably, focus on your breath, and when your mind wanders, gently bring attention back to breathing.</p>
+                            </div>
+                            <div class="practice">
+                                <h5>Mindful Eating</h5>
+                                <p>Engage all senses while eating. Notice colors, textures, smells, flavors, and sounds of your food.</p>
+                            </div>
+                            <div class="practice">
+                                <h5>Body Scan</h5>
+                                <p>Progressively relax each part of your body from toes to head, noticing sensations without judgment.</p>
+                            </div>
+                            <div class="practice">
+                                <h5>Gratitude Practice</h5>
+                                <p>Identify three things you're grateful for each day, focusing on the present moment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="newsletter-signup" data-aos="fade-up">
+                        <h4>Get Weekly Mental Wellness Tips</h4>
+                        <p>Join our community to receive weekly practices, insights, and support for your mental wellbeing journey.</p>
+                        <form class="wellness-form">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit" class="btn primary-btn btn-ripple">Subscribe</button>
+                        </form>
+                    </div>
+                    
+                    <div class="btn-container" data-aos="fade-up">
+                        <a href="#" class="btn primary-btn btn-ripple">
+                            <i class="fas fa-play-circle"></i> Try Guided Session
+                        </a>
+                        <a href="#" class="btn secondary-btn btn-ripple">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wellness Blog Preview Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Wellness Blog</h2>
+            <div class="blog-container">
+                <div class="blog-card" data-aos="flip-left">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Meditation">
+                    </div>
+                    <div class="blog-content">
+                        <h3>5 Natural Ways to Reduce Stress</h3>
+                        <p>Discover science-backed methods to lower stress and anxiety without medication.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Healthy Food">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Anti-Inflammatory Diet Basics</h3>
+                        <p>Learn which foods fight inflammation and which ones might be making it worse.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sleep">
+                    </div>
+                    <div class="blog-content">
+                        <h3>The Science of Better Sleep</h3>
+                        <p>Why quality sleep matters and proven techniques to improve your sleep patterns.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>abhimanyu99yadav99@gmail.com</p>
+                        </div>
+                        <div class="social-icons">
+                            <a href="https://www.youtube.com/@MedicineVeda" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn btn-ripple">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="enhanced-footer">
+        <div class="container">
+            <div class="footer-features">
+                <div class="footer-feature">
+                    <i class="fas fa-leaf"></i>
+                    <div class="footer-feature-content">
+                        <h4>100% Authentic</h4>
+                        <p>Traditional Ayurvedic formulations</p>
+                    </div>
+                </div>
+                <div class="footer-feature">
+                    <i class="fas fa-certificate"></i>
+                    <div class="footer-feature-content">
+                        <h4>Certified Products</h4>
+                        <p>GMP and ISO certified manufacturing</p>
+                    </div>
+                </div>
+                <div class="footer-feature">
+                    <i class="fas fa-truck"></i>
+                    <div class="footer-feature-content">
+                        <h4>Fast Delivery</h4>
+                        <p>Nationwide shipping within 2-3 days</p>
+                    </div>
+                </div>
+                <div class="footer-feature">
+                    <i class="fas fa-headset"></i>
+                    <div class="footer-feature-content">
+                        <h4>24/7 Support</h4>
+                        <p>Expert guidance whenever you need it</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-logo footer-section">
+                    <img src="img/logo.png" alt="Medicine Veda Logo">
+                    <p>Bringing ancient Ayurvedic wisdom to modern healthcare through authentic products, expert guidance, and evidence-based practices.</p>
+                    <div class="footer-awards">
+                        <div class="footer-award">
+                            <i class="fas fa-medal"></i>
+                            <span>Best Ayurvedic Resource 2023</span>
+                        </div>
+                        <div class="footer-award">
+                            <i class="fas fa-award"></i>
+                            <span>Trusted by 50,000+ Users</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="premium.html"><i class="fas fa-chevron-right"></i> Premium</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="ayurveda-basics.html"><i class="fas fa-chevron-right"></i> Ayurveda Basics</a></li>
+                        <li><a href="dosha-quiz.html"><i class="fas fa-chevron-right"></i> Know Your Dosha</a></li>
+                        <li><a href="health-tools.html"><i class="fas fa-chevron-right"></i> Health Tools</a></li>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                        <li><a href="refund.html"><i class="fas fa-chevron-right"></i> Refund Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Ayurveda Lane, Wellness District, Mumbai, 400001, India</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@medicineveda.com</p>
+                    <p><i class="fas fa-clock"></i> Monday-Saturday: 9:00 AM - 6:00 PM</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-newsletter footer-section">
+                    <h3>Subscribe to Newsletter</h3>
+                    <p>Get weekly updates on new content, special offers, and Ayurvedic tips delivered straight to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn primary-btn btn-ripple">Subscribe</button>
+                    </form>
+                    <p class="small-text">By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="footer-bottom-content">
+                        <p>&copy; 2023 Medicine Veda. All Rights Reserved.</p>
+                        <div class="footer-bottom-links">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                            <a href="refund.html">Refund Policy</a>
+                            <a href="sitemap.html">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Subscription Popup -->
+    <div class="popup" id="subscribePopup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2>Subscribe to Medicine Veda</h2>
+            <p>Get the latest health tips and wellness advice delivered to your inbox!</p>
+            <form class="popup-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn primary-btn btn-ripple">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/dark-mode.js" defer></script>
+    <script src="js/bmi.js" defer></script>
+    <script src="js/recipe.js" defer></script>
+    <script src="js/appointment.js" defer></script>
+    <script src="js/newsletter.js" defer></script>
+    <!-- EmailJS SDK - Add before your scripts -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS with your public key
+        // IMPORTANT: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+        // You can get this from your EmailJS dashboard
+        emailjs.init('YOUR_PUBLIC_KEY');
+    </script>
+    <script>
+        // Enhanced YouTube thumbnail loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all video wrappers
+            const videoWrappers = document.querySelectorAll('.video-wrapper');
+            
+            videoWrappers.forEach(function(wrapper) {
+                // Find iframe in this wrapper
+                const iframe = wrapper.querySelector('iframe');
+                if (!iframe) return;
+                
+                // Get video ID from iframe src
+                const src = iframe.getAttribute('src');
+                const videoId = extractVideoId(src);
+                if (!videoId) return;
+                
+                // Store original iframe
+                const originalIframe = iframe.cloneNode(true);
+                
+                // Create thumbnail container
+                const thumbContainer = document.createElement('div');
+                thumbContainer.className = 'youtube-thumbnail';
+                thumbContainer.style.position = 'absolute';
+                thumbContainer.style.top = '0';
+                thumbContainer.style.left = '0';
+                thumbContainer.style.width = '100%';
+                thumbContainer.style.height = '100%';
+                thumbContainer.style.cursor = 'pointer';
+                thumbContainer.style.zIndex = '2'; // Ensure it's above other elements
+                
+                // Add loading indicator
+                const loadingIndicator = document.createElement('div');
+                loadingIndicator.className = 'thumbnail-loading';
+                thumbContainer.appendChild(loadingIndicator);
+                
+                // Try multiple thumbnail qualities
+                const thumbUrls = [
+                    `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+                    `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+                    `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`,
+                    `https://i.ytimg.com/vi/${videoId}/default.jpg`
+                ];
+                
+                // Function to try loading thumbnails in sequence
+                function tryLoadingThumbnail(index) {
+                    if (index >= thumbUrls.length) {
+                        // If all thumbnails fail, use a generic video placeholder
+                        thumbContainer.style.backgroundImage = "url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"64\" height=\"64\" fill=\"%23fff\"%3E%3Cpath d=\"M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M10,16.5L16,12L10,7.5V16.5Z\"%3E%3C/path%3E%3C/svg%3E')";
+                        thumbContainer.style.backgroundColor = "#000";
+                        thumbContainer.style.backgroundPosition = "center";
+                        thumbContainer.style.backgroundRepeat = "no-repeat";
+                        loadingIndicator.style.display = "none";
+                        return;
+                    }
+                    
+                    const img = new Image();
+                    
+                    img.onload = function() {
+                        // Check if image actually loaded with proper dimensions
+                        if (this.width > 120) { // Ensure it's not a tiny thumbnail
+                            // Success - use this thumbnail
+                            thumbContainer.style.backgroundImage = `url('${thumbUrls[index]}')`;
+                            thumbContainer.style.backgroundSize = 'cover';
+                            thumbContainer.style.backgroundPosition = 'center';
+                            loadingIndicator.style.display = "none";
+                        } else {
+                            // Too small, try next one
+                            tryLoadingThumbnail(index + 1);
+                        }
+                    };
+                    
+                    img.onerror = function() {
+                        // Error loading this thumbnail, try next one
+                        tryLoadingThumbnail(index + 1);
+                    };
+                    
+                    // Set a timeout in case loading hangs
+                    const timeout = setTimeout(() => {
+                        if (!img.complete) {
+                            tryLoadingThumbnail(index + 1);
+                        }
+                    }, 3000);
+                    
+                    img.src = thumbUrls[index];
+                }
+                
+                // Start trying to load thumbnails
+                tryLoadingThumbnail(0);
+                
+                // Create play button
+                const playButton = document.createElement('div');
+                playButton.style.position = 'absolute';
+                playButton.style.top = '50%';
+                playButton.style.left = '50%';
+                playButton.style.transform = 'translate(-50%, -50%)';
+                playButton.style.width = '68px';
+                playButton.style.height = '48px';
+                playButton.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                playButton.style.borderRadius = '10px';
+                playButton.style.display = 'flex';
+                playButton.style.alignItems = 'center';
+                playButton.style.justifyContent = 'center';
+                playButton.style.transition = 'background-color 0.3s';
+                playButton.style.zIndex = '3'; // Ensure it's above the thumbnail
+                
+                // Play triangle
+                const playIcon = document.createElement('div');
+                playIcon.style.width = '0';
+                playIcon.style.height = '0';
+                playIcon.style.borderStyle = 'solid';
+                playIcon.style.borderWidth = '10px 0 10px 20px';
+                playIcon.style.borderColor = 'transparent transparent transparent white';
+                playIcon.style.marginLeft = '4px';
+                
+                // Add hover effects
+                thumbContainer.addEventListener('mouseover', function() {
+                    playButton.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
+                    playButton.style.transform = 'translate(-50%, -50%) scale(1.1)';
+                });
+                
+                thumbContainer.addEventListener('mouseout', function() {
+                    playButton.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                    playButton.style.transform = 'translate(-50%, -50%) scale(1)';
+                });
+                
+                // Click handler to replace with video
+                thumbContainer.addEventListener('click', function() {
+                    // Create new iframe with autoplay enabled
+                    const videoSrc = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+                    const newIframe = document.createElement('iframe');
+                    newIframe.setAttribute('width', '100%');
+                    newIframe.setAttribute('height', '100%');
+                    newIframe.setAttribute('src', videoSrc);
+                    newIframe.setAttribute('title', 'YouTube video player');
+                    newIframe.setAttribute('frameborder', '0');
+                    newIframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                    newIframe.setAttribute('allowfullscreen', '');
+                    
+                    // Replace thumbnail with iframe
+                    wrapper.innerHTML = '';
+                    wrapper.appendChild(newIframe);
+                    
+                    // For analytics purposes, you could track this click
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'play_video', {
+                            'video_id': videoId,
+                            'video_title': originalIframe.getAttribute('title')
+                        });
+                    }
+                });
+                
+                // Assemble and add to DOM
+                playButton.appendChild(playIcon);
+                thumbContainer.appendChild(playButton);
+                
+                // Hide the original iframe and add thumbnail
+                iframe.style.display = 'none';
+                wrapper.appendChild(thumbContainer);
+            });
+            
+            // Extract video ID from YouTube URL
+            function extractVideoId(url) {
+                if (!url) return null;
+                
+                // Match various YouTube URL formats
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+                const match = url.match(regExp);
+                
+                return (match && match[2].length === 11) ? match[2] : null;
+            }
+        });
+    </script>
+</body>
+</html> 
